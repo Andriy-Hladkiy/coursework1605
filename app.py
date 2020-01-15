@@ -300,7 +300,7 @@ def new_lesson():
         if form.validate() == True:
             ok = ormLesson(
                 lesson_name=form.lesson_name.data,
-                classroom_number=form.floors_number.data,
+                classroom_number=form.classroom_number.data,
                 build_number=form.build_number.data,
 
             )
