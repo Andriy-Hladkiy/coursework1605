@@ -20,7 +20,7 @@ from sqlalchemy.sql import func
 app = Flask(__name__)
 app.secret_key = 'key'
 
-ENV = 'dev'
+ENV = 'prod'
 if ENV == 'dev':
     app.debug = True
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1@localhost/test'
@@ -71,29 +71,29 @@ class ormLesson(db.Model):
 
 db.create_all()
 
-db.session.query(ormUsers).delete()
-db.session.query(ormLesson).delete()
-db.session.query(ormBuilding).delete()
+# db.session.query(ormUsers).delete()
+# db.session.query(ormLesson).delete()
+# db.session.query(ormBuilding).delete()
 
-User1 = ormUsers(user_id = 1, user_name ='Andriy', user_surname ='Hladkiy', user_email ='andriyha98@gmail.com', user_groupe ='KM-63', user_faculty ='FMA', user_course ='4', lesson_name ='matan')
-User2 = ormUsers(user_id = 2, user_name ='Ihor', user_surname ='Riasik', user_email ='riasik99@gmail.com', user_groupe ='KM-63', user_faculty ='FMA', user_course ='4', lesson_name ='matan')
-User3 = ormUsers(user_id = 3, user_name ='Alex', user_surname ='Buc', user_email ='buc99@gmail.com', user_groupe ='KM-63', user_faculty ='FMA', user_course ='4', lesson_name ='matan')
-Building1 =ormBuilding(build_number = '14', build_address='politehnichna 14', floors_number='72')
-Building2 =ormBuilding(build_number = '7', build_address='politehnichna 21', floors_number='302')
-Building3 =ormBuilding(build_number = '15', build_address='politehnichna 16', floors_number='95')
-Lesson1 = ormLesson(lesson_name = 'matan', classroom_number = '95', build_number = '15')
-Lesson2 = ormLesson(lesson_name = 'db', classroom_number = '72', build_number = '14')
-Lesson3 = ormLesson(lesson_name = 'ekonomika', classroom_number = '302', build_number = '7')
-Lesson1.Users__.append(User1)
-Lesson1.Users__.append(User3)
-Lesson1.Users__.append(User2)
-Building3.Lesson_.append(Lesson1)
-Building1.Lesson_.append(Lesson2)
-Building2.Lesson_.append(Lesson3)
-db.session.add_all([User1,User2,User3])
-db.session.add_all([Building1,Building2,Building3])
-db.session.add_all([Lesson1,Lesson2,Lesson3])
-db.session.commit()
+# User1 = ormUsers(user_id = 1, user_name ='Andriy', user_surname ='Hladkiy', user_email ='andriyha98@gmail.com', user_groupe ='KM-63', user_faculty ='FMA', user_course ='4', lesson_name ='matan')
+# User2 = ormUsers(user_id = 2, user_name ='Ihor', user_surname ='Riasik', user_email ='riasik99@gmail.com', user_groupe ='KM-63', user_faculty ='FMA', user_course ='4', lesson_name ='matan')
+# User3 = ormUsers(user_id = 3, user_name ='Alex', user_surname ='Buc', user_email ='buc99@gmail.com', user_groupe ='KM-63', user_faculty ='FMA', user_course ='4', lesson_name ='matan')
+# Building1 =ormBuilding(build_number = '14', build_address='politehnichna 14', floors_number='72')
+# Building2 =ormBuilding(build_number = '7', build_address='politehnichna 21', floors_number='302')
+# Building3 =ormBuilding(build_number = '15', build_address='politehnichna 16', floors_number='95')
+# Lesson1 = ormLesson(lesson_name = 'matan', classroom_number = '95', build_number = '15')
+# Lesson2 = ormLesson(lesson_name = 'db', classroom_number = '72', build_number = '14')
+# Lesson3 = ormLesson(lesson_name = 'ekonomika', classroom_number = '302', build_number = '7')
+# Lesson1.Users__.append(User1)
+# Lesson1.Users__.append(User3)
+# Lesson1.Users__.append(User2)
+# Building3.Lesson_.append(Lesson1)
+# Building1.Lesson_.append(Lesson2)
+# Building2.Lesson_.append(Lesson3)
+# db.session.add_all([User1,User2,User3])
+# db.session.add_all([Building1,Building2,Building3])
+# db.session.add_all([Lesson1,Lesson2,Lesson3])
+# db.session.commit()
 
 
 # main page
