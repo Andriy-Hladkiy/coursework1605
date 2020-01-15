@@ -61,7 +61,7 @@ class ormLesson(db.Model):
     Users__ = db.relationship('ormUsers')
 
 
-db.create_all()
+#db.create_all()
 
 # db.session.query(ormUsers).delete()
 # db.session.query(ormLesson).delete()
